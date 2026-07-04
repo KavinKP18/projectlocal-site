@@ -8,53 +8,79 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* Animated fluid liquid blobs in the background */
+        /* Enhanced High-Definition Fluid Liquid Glass Animations */
         .liquid-blob {
             position: absolute;
             border-radius: 50%;
-            filter: blur(90px);
+            filter: blur(100px);
             z-index: 0;
-            animation: float 12s ease-in-out infinite alternate;
+            mix-blend-mode: plus-lighter;
+            animation: float 14s ease-in-out infinite alternate;
+        }
+        .liquid-blob-reverse {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            z-index: 0;
+            mix-blend-mode: plus-lighter;
+            animation: floatReverse 18s ease-in-out infinite alternate;
         }
         @keyframes float {
-            0% { transform: translateY(0px) scale(1); }
-            100% { transform: translateY(-40px) scale(1.15); }
+            0% { transform: translateY(0px) translateX(0px) scale(1); }
+            50% { transform: translateY(-60px) translateX(40px) scale(1.2); }
+            100% { transform: translateY(-20px) translateX(-20px) scale(0.9); }
+        }
+        @keyframes floatReverse {
+            0% { transform: translateY(0px) translateX(0px) scale(1.1); }
+            50% { transform: translateY(50px) translateX(-50px) scale(0.85); }
+            100% { transform: translateY(-40px) translateX(30px) scale(1.15); }
+        }
+        /* Custom smooth transition for theme switching */
+        .theme-transition {
+            transition: background-color 0.5s ease, border-color 0.5s ease, text-color 0.5s ease, box-shadow 0.5s ease;
         }
     </style>
 </head>
-<body class="bg-slate-950 text-white font-sans antialiased scroll-smooth">
+<body class="bg-slate-950 text-white font-sans antialiased scroll-smooth theme-transition transition-colors duration-500" id="body-theme">
 
-    <header class="sticky top-0 z-50 bg-slate-950/70 border-b border-white/5 backdrop-blur-md">
+    <header class="sticky top-0 z-50 bg-slate-950/70 border-b border-white/5 backdrop-blur-md theme-transition" id="nav-header">
         <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-black tracking-tight text-blue-400">Project<span class="text-white">Local</span></a>
-            <nav class="hidden md:flex space-x-8 font-medium text-slate-300">
-                <a href="#about" class="hover:text-blue-400 transition">About</a>
-                <a href="#features" class="hover:text-blue-400 transition">Features</a>
-                <a href="#process" class="hover:text-blue-400 transition">Our Process</a>
+            <a href="#" class="text-2xl font-black tracking-tight text-cyan-400">Project<span class="text-white transition-colors duration-500" id="logo-text">Local</span></a>
+            <nav class="hidden md:flex space-x-8 font-medium text-slate-300 transition-colors duration-500" id="nav-links">
+                <a href="#about" class="hover:text-cyan-400 transition">About</a>
+                <a href="#features" class="hover:text-cyan-400 transition">Features</a>
+                <a href="#team" class="hover:text-cyan-400 transition">Team</a>
+                <a href="#faq" class="hover:text-cyan-400 transition">FAQs</a>
             </nav>
-            <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-5 py-2.5 rounded-xl transition shadow-sm shadow-blue-500/20">Get a Free Quote</a>
+            <div class="flex items-center space-x-4">
+                <button onclick="toggleTheme()" class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 flex items-center justify-center transition cursor-pointer text-amber-400" id="theme-btn">
+                    <i class="fa-solid fa-moon text-lg" id="theme-icon"></i>
+                </button>
+                <a href="#contact" class="bg-gradient-to-r from-cyan-500 to-blue-600 hover:opacity-90 text-white font-semibold px-5 py-2.5 rounded-xl transition shadow-lg shadow-cyan-500/25">Get a Free Quote</a>
+            </div>
         </div>
     </header>
 
     <section class="relative overflow-hidden pt-24 pb-28">
-        <div class="liquid-blob w-72 h-72 bg-blue-600/30 top-10 left-1/4"></div>
-        <div class="liquid-blob w-80 h-80 bg-purple-600/20 bottom-10 right-1/4" style="animation-delay: -6s;"></div>
+        <div class="liquid-blob w-96 h-96 bg-cyan-500/20 top-[-50px] left-1/4"></div>
+        <div class="liquid-blob-reverse w-[30rem] h-[30rem] bg-indigo-600/20 bottom-0 right-1/4" style="animation-delay: -4s;"></div>
+        <div class="liquid-blob w-80 h-80 bg-fuchsia-500/10 top-1/3 right-10" style="animation-delay: -8s;"></div>
 
         <div class="relative z-10 max-w-4xl mx-auto text-center px-4">
-            <span class="inline-flex items-center gap-1.5 py-1.5 px-4 rounded-full text-xs font-semibold bg-white/5 border border-white/10 backdrop-blur-md text-blue-300 mb-6">
-                🚀 Now launching in your local area
+            <span class="inline-flex items-center gap-1.5 py-1.5 px-4 rounded-full text-xs font-semibold bg-white/5 border border-white/10 backdrop-blur-md text-cyan-300 mb-6 shadow-xl">
+                ✨ Elevated Digital Design for Local Businesses
             </span>
-            <h1 class="text-4xl sm:text-6xl font-black tracking-tight mb-6 leading-tight">
-                We Build Websites That Turn Local Visitors Into <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">Loyal Customers</span>
+            <h1 class="text-5xl sm:text-7xl font-black tracking-tight mb-6 leading-tight">
+                We Build Websites That Turn Local Visitors Into <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-fuchsia-400">Loyal Customers</span>
             </h1>
-            <p class="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed">
+            <p class="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed transition-colors duration-500" id="hero-subtitle">
                 Professional, feature-rich websites tailored for small businesses. Get online, get noticed, and grow your revenue without the high agency price tag.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <a href="#contact" class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-4 rounded-xl transition shadow-lg shadow-blue-500/20 text-center">
+                <a href="#contact" class="w-full sm:w-auto bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold px-8 py-4 rounded-xl transition shadow-xl shadow-cyan-500/20 text-center hover:opacity-95">
                     Let's Build Your Site
                 </a>
-                <a href="#features" class="w-full sm:w-auto bg-white/5 hover:bg-white/10 text-white border border-white/10 backdrop-blur-md font-semibold px-8 py-4 rounded-xl transition text-center">
+                <a href="#features" class="w-full sm:w-auto bg-white/5 hover:bg-white/10 text-white border border-white/10 backdrop-blur-md font-semibold px-8 py-4 rounded-xl transition text-center shadow-md">
                     See What's Included
                 </a>
             </div>
@@ -62,137 +88,313 @@
     </section>
 
     <section id="about" class="max-w-5xl mx-auto px-4 py-16 relative">
-        <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 sm:p-12 shadow-2xl relative overflow-hidden">
-            <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-blue-500/10 blur-2xl rounded-full"></div>
-            <div class="max-w-2xl relative z-10">
-                <p class="text-blue-400 font-bold tracking-wider uppercase text-sm mb-3">The ProjectLocal Mission</p>
-                <h2 class="text-2xl sm:text-3xl font-bold mb-4 tracking-tight">Over 80% of consumers research a local business online before visiting.</h2>
-                <p class="text-slate-300 leading-relaxed text-base sm:text-lg">
-                    If your business isn't online—or if your website is outdated—you are losing ground to competitors. We started <strong class="text-white">ProjectLocal</strong> to bridge the gap. We handle the design, custom coding, and local optimization so you can focus entirely on running your business.
+        <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 sm:p-12 shadow-2xl relative overflow-hidden theme-transition" id="glass-card-about">
+            <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-cyan-500/10 blur-2xl rounded-full"></div>
+            <div class="max-w-3xl relative z-10">
+                <p class="text-cyan-400 font-bold tracking-wider uppercase text-sm mb-3">The ProjectLocal Mission</p>
+                <h2 class="text-2xl sm:text-4xl font-bold mb-4 tracking-tight">Over 80% of consumers research a local business online before visiting.</h2>
+                <p class="text-slate-300 leading-relaxed text-base sm:text-lg transition-colors duration-500" id="about-text">
+                    If your business isn't online—or if your website is outdated—you are losing ground to competitors. We started <strong class="text-cyan-400">ProjectLocal</strong> to bridge the gap. We handle the design, custom coding, and local optimization so you can focus entirely on running your business.
                 </p>
             </div>
         </div>
     </section>
 
     <section id="features" class="py-20 relative overflow-hidden">
-        <div class="liquid-blob w-96 h-96 bg-blue-500/10 top-1/3 left-1/2 -translate-x-1/2"></div>
+        <div class="liquid-blob-reverse w-96 h-96 bg-fuchsia-500/10 top-1/3 left-1/2 -translate-x-1/2"></div>
 
         <div class="relative z-10 max-w-6xl mx-auto px-4">
             <div class="text-center max-w-2xl mx-auto mb-16">
                 <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-4">Packed with Powerful Features</h2>
-                <p class="text-slate-400">We don't just build pretty pages. We pack every website with premium business tools to pull in traffic and conversions.</p>
+                <p class="text-slate-400 transition-colors duration-500" id="features-subtitle">We pack every website with premium business tools to pull in traffic and conversions.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-2xl shadow-xl hover:border-white/20 transition duration-300">
-                    <div class="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center text-blue-400 text-xl mb-6"><i class="fa-solid fa-mobile-screen-button"></i></div>
+                <div class="bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-2xl shadow-xl hover:border-cyan-500/40 transition duration-300 theme-transition" name="glass-card">
+                    <div class="w-12 h-12 rounded-xl bg-cyan-500/20 flex items-center justify-center text-cyan-400 text-xl mb-6"><i class="fa-solid fa-mobile-screen-button"></i></div>
                     <h3 class="text-xl font-bold mb-2">Mobile-First Design</h3>
                     <p class="text-slate-400">Your site will look flawless and function smoothly on smartphones, tablets, and desktops alike.</p>
                 </div>
-                <div class="bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-2xl shadow-xl hover:border-white/20 transition duration-300">
+                <div class="bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-2xl shadow-xl hover:border-cyan-500/40 transition duration-300 theme-transition" name="glass-card">
                     <div class="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center text-blue-400 text-xl mb-6"><i class="fa-solid fa-magnifying-glass-location"></i></div>
                     <h3 class="text-xl font-bold mb-2">Local SEO Ready</h3>
                     <p class="text-slate-400">Optimized structure to help your business climb the ranks on Google Maps and local search queries.</p>
                 </div>
-                <div class="bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-2xl shadow-xl hover:border-white/20 transition duration-300">
-                    <div class="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center text-blue-400 text-xl mb-6"><i class="fa-solid fa-calendar-days"></i></div>
+                <div class="bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-2xl shadow-xl hover:border-cyan-500/40 transition duration-300 theme-transition" name="glass-card">
+                    <div class="w-12 h-12 rounded-xl bg-fuchsia-500/20 flex items-center justify-center text-fuchsia-400 text-xl mb-6"><i class="fa-solid fa-calendar-days"></i></div>
                     <h3 class="text-xl font-bold mb-2">Online Booking</h3>
                     <p class="text-slate-400">Let your customers schedule appointments, book tables, or request services 24/7 without making a call.</p>
-                </div>
-                <div class="bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-2xl shadow-xl hover:border-white/20 transition duration-300">
-                    <div class="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center text-blue-400 text-xl mb-6"><i class="fa-solid fa-utensils"></i></div>
-                    <h3 class="text-xl font-bold mb-2">Menus & Catalogs</h3>
-                    <p class="text-slate-400">Clean, beautifully styled digital menus or service sheets that make browsing a breeze for locals.</p>
-                </div>
-                <div class="bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-2xl shadow-xl hover:border-white/20 transition duration-300">
-                    <div class="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center text-blue-400 text-xl mb-6"><i class="fa-solid fa-bolt"></i></div>
-                    <h3 class="text-xl font-bold mb-2">Lightning Fast Coding</h3>
-                    <p class="text-slate-400">Custom-built directly with code means no platform bloat. Your pages load instantly, keeping customers engaged.</p>
-                </div>
-                <div class="bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-2xl shadow-xl hover:border-white/20 transition duration-300">
-                    <div class="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center text-blue-400 text-xl mb-6"><i class="fa-solid fa-shield-halved"></i></div>
-                    <h3 class="text-xl font-bold mb-2">Secure & Maintained</h3>
-                    <p class="text-slate-400">Full SSL setup ensures connections are completely safe, giving your clients absolute peace of mind.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="process" class="bg-slate-900 py-20 border-t border-b border-white/5">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="text-center max-w-2xl mx-auto mb-16">
-                <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-4">How We Work</h2>
-                <p class="text-slate-400">Getting your business online shouldn't be stressful. We handle everything in three clear steps.</p>
+    <section id="team" class="py-20 relative max-w-6xl mx-auto px-4">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+            <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-4">Meet the Founders</h2>
+            <p class="text-slate-400 transition-colors duration-500" id="team-subtitle">We are dedicated tech partners working directly with you to scale your business online.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div class="bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-3xl shadow-xl flex flex-col items-center text-center theme-transition" id="team-card-1">
+                <div class="w-24 h-24 rounded-2xl bg-gradient-to-tr from-cyan-400 to-blue-600 flex items-center justify-center text-white text-3xl font-black mb-6 shadow-lg shadow-cyan-500/20">KP</div>
+                <h3 class="text-2xl font-bold tracking-tight">Kavinkrishna Pandiarajan</h3>
+                <p class="text-cyan-400 font-semibold text-sm mb-4">Co-Founder & Web Architect</p>
+                <div class="space-y-2 text-slate-300 w-full text-left border-t border-white/5 pt-4 transition-colors duration-500" id="team-contacts-1">
+                    <a href="tel:6097216674" class="flex items-center gap-3 hover:text-cyan-400 transition"><i class="fa-solid fa-phone text-cyan-400"></i> (609) 721-6674</a>
+                    <a href="mailto:pandiarajankavin2@gmail.com" class="flex items-center gap-3 hover:text-cyan-400 transition break-all"><i class="fa-solid fa-envelope text-cyan-400"></i> pandiarajankavin2@gmail.com</a>
+                </div>
             </div>
+            <div class="bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-3xl shadow-xl flex flex-col items-center text-center theme-transition" id="team-card-2">
+                <div class="w-24 h-24 rounded-2xl bg-gradient-to-tr from-fuchsia-400 to-indigo-600 flex items-center justify-center text-white text-3xl font-black mb-6 shadow-lg shadow-fuchsia-500/20">SR</div>
+                <h3 class="text-2xl font-bold tracking-tight">Swarnab Roy</h3>
+                <p class="text-fuchsia-400 font-semibold text-sm mb-4">Co-Founder & Lead Engineer</p>
+                <div class="space-y-2 text-slate-300 w-full text-left border-t border-white/5 pt-4 transition-colors duration-500" id="team-contacts-2">
+                    <a href="tel:6097791824" class="flex items-center gap-3 hover:text-fuchsia-400 transition"><i class="fa-solid fa-phone text-fuchsia-400"></i> (609) 779-1824</a>
+                    <a href="mailto:swarnabr10@gmail.com" class="flex items-center gap-3 hover:text-fuchsia-400 transition break-all"><i class="fa-solid fa-envelope text-fuchsia-400"></i> swarnabr10@gmail.com</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white/5 border border-white/10 p-8 rounded-2xl relative shadow-md">
-                    <div class="absolute -top-5 left-8 bg-blue-600 text-white w-10 h-10 rounded-xl flex items-center justify-center font-bold">1</div>
-                    <h3 class="text-xl font-bold mt-2 mb-3">The Coffee Chat</h3>
-                    <p class="text-slate-400">We discuss your exact business needs, style choices, and target customers over coffee or a quick digital call.</p>
+    <section id="faq" class="py-20 relative max-w-4xl mx-auto px-4">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+            <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-4">Frequently Asked Questions</h2>
+            <p class="text-slate-400 transition-colors duration-500" id="faq-subtitle">Everything you need to know about setting up your new website.</p>
+        </div>
+        <div class="space-y-4">
+            <div class="bg-white/5 border border-white/10 rounded-2xl overflow-hidden theme-transition" name="faq-block">
+                <button onclick="toggleFaq(this)" class="w-full px-6 py-5 text-left font-bold flex justify-between items-center text-lg hover:bg-white/5 transition cursor-pointer">
+                    <span>How long does it take to launch my website?</span>
+                    <i class="fa-solid fa-chevron-down text-cyan-400 transition-transform duration-300"></i>
+                </button>
+                <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out bg-white/2">
+                    <p class="p-6 text-slate-300 leading-relaxed border-t border-white/5">Typically, we can design, build, test, and launch your fully optimized local business website within 7 to 14 days following our initial coffee chat.</p>
                 </div>
-                <div class="bg-white/5 border border-white/10 p-8 rounded-2xl relative shadow-md">
-                    <div class="absolute -top-5 left-8 bg-blue-600 text-white w-10 h-10 rounded-xl flex items-center justify-center font-bold">2</div>
-                    <h3 class="text-xl font-bold mt-2 mb-3">The Custom Build</h3>
-                    <p class="text-slate-400">We custom code a prototype tailored perfectly to your branding and tweak it until you are completely thrilled with it.</p>
+            </div>
+            <div class="bg-white/5 border border-white/10 rounded-2xl overflow-hidden theme-transition" name="faq-block">
+                <button onclick="toggleFaq(this)" class="w-full px-6 py-5 text-left font-bold flex justify-between items-center text-lg hover:bg-white/5 transition cursor-pointer">
+                    <span>Do I own the custom website and data?</span>
+                    <i class="fa-solid fa-chevron-down text-cyan-400 transition-transform duration-300"></i>
+                </button>
+                <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out bg-white/2">
+                    <p class="p-6 text-slate-300 leading-relaxed border-t border-white/5">Yes, absolutely! Unlike restrictive monthly web builder agencies, 100% of the files, accounts, asset structures, and underlying deployment frameworks belong to you completely.</p>
                 </div>
-                <div class="bg-white/5 border border-white/10 p-8 rounded-2xl relative shadow-md">
-                    <div class="absolute -top-5 left-8 bg-blue-600 text-white w-10 h-10 rounded-xl flex items-center justify-center font-bold">3</div>
-                    <h3 class="text-xl font-bold mt-2 mb-3">The Live Launch</h3>
-                    <p class="text-slate-400">We push your site live, hook up your custom domain, and index it on Google so the neighborhood can discover you right away.</p>
+            </div>
+            <div class="bg-white/5 border border-white/10 rounded-2xl overflow-hidden theme-transition" name="faq-block">
+                <button onclick="toggleFaq(this)" class="w-full px-6 py-5 text-left font-bold flex justify-between items-center text-lg hover:bg-white/5 transition cursor-pointer">
+                    <span>What is required to keep my site running live?</span>
+                    <i class="fa-solid fa-chevron-down text-cyan-400 transition-transform duration-300"></i>
+                </button>
+                <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out bg-white/2">
+                    <p class="p-6 text-slate-300 leading-relaxed border-t border-white/5">Because we program custom high-performance raw code deployed onto secure distributed infrastructure arrays, standard operational web hosting is completely free forever. You only cover standard custom domain registration fees (usually around $12/year).</p>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="contact" class="max-w-4xl mx-auto px-4 py-24 relative">
-        <div class="liquid-blob w-72 h-72 bg-purple-600/10 -top-10 left-1/3"></div>
-        
-        <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 sm:p-12 shadow-2xl relative z-10">
+        <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 sm:p-12 shadow-2xl relative z-10 theme-transition" id="glass-card-form">
             <div class="text-center max-w-xl mx-auto mb-10">
                 <h2 class="text-3xl font-bold tracking-tight mb-3">Ready to Upgrade Your Presence?</h2>
-                <p class="text-slate-400">Drop us a line! Let's schedule a completely free consult to see how we can level up your business website.</p>
+                <p class="text-slate-400 transition-colors duration-500" id="form-subtitle">Drop us a line! Let's schedule a completely free consult to see how we can level up your business website.</p>
             </div>
 
             <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
-                
                 <input type="hidden" name="access_key" value="26abcc74-ff62-4da5-9863-657d26f72c12">
                 <input type="hidden" name="subject" value="New ProjectLocal Lead!">
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
                         <label class="block text-sm font-semibold text-slate-300 mb-2">Your Name</label>
-                        <input type="text" name="name" placeholder="John Doe" required class="w-full bg-white/5 text-white placeholder-slate-500 px-4 py-3 rounded-xl border border-white/10 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition">
+                        <input type="text" name="name" placeholder="John Doe" required class="w-full bg-white/5 text-white placeholder-slate-500 px-4 py-3 rounded-xl border border-white/10 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition theme-transition" id="input-1">
                     </div>
                     <div>
                         <label class="block text-sm font-semibold text-slate-300 mb-2">Business Name</label>
-                        <input type="text" name="business_name" placeholder="Main St. Cafe" required class="w-full bg-white/5 text-white placeholder-slate-500 px-4 py-3 rounded-xl border border-white/10 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition">
+                        <input type="text" name="business_name" placeholder="Main St. Cafe" required class="w-full bg-white/5 text-white placeholder-slate-500 px-4 py-3 rounded-xl border border-white/10 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition theme-transition" id="input-2">
                     </div>
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
                         <label class="block text-sm font-semibold text-slate-300 mb-2">Email Address</label>
-                        <input type="email" name="email" placeholder="john@example.com" required class="w-full bg-white/5 text-white placeholder-slate-500 px-4 py-3 rounded-xl border border-white/10 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition">
+                        <input type="email" name="email" placeholder="john@example.com" required class="w-full bg-white/5 text-white placeholder-slate-500 px-4 py-3 rounded-xl border border-white/10 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition theme-transition" id="input-3">
                     </div>
                     <div>
                         <label class="block text-sm font-semibold text-slate-300 mb-2">Phone Number</label>
-                        <input type="tel" name="phone" placeholder="(555) 000-0000" class="w-full bg-white/5 text-white placeholder-slate-500 px-4 py-3 rounded-xl border border-white/10 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition">
+                        <input type="tel" name="phone" placeholder="(555) 000-0000" class="w-full bg-white/5 text-white placeholder-slate-500 px-4 py-3 rounded-xl border border-white/10 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition theme-transition" id="input-4">
                     </div>
                 </div>
                 <div>
                     <label class="block text-sm font-semibold text-slate-300 mb-2">What goals do you have for your new website?</label>
-                    <textarea name="message" rows="4" placeholder="Tell us a little bit about what you need (e.g., online booking, modern design, SEO)..." required class="w-full bg-white/5 text-white placeholder-slate-500 px-4 py-3 rounded-xl border border-white/10 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition"></textarea>
+                    <textarea name="message" rows="4" placeholder="Tell us a little bit about what you need (e.g., online booking, modern design, SEO)..." required class="w-full bg-white/5 text-white placeholder-slate-500 px-4 py-3 rounded-xl border border-white/10 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition theme-transition" id="input-5"></textarea>
                 </div>
-                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl transition shadow-lg shadow-blue-500/20">
+                <button type="submit" class="w-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold py-4 rounded-xl transition shadow-lg shadow-cyan-500/20 hover:opacity-95 cursor-pointer">
                     Send Free Consultation Request
                 </button>
             </form>
         </div>
     </section>
 
-    <footer class="border-t border-white/5 bg-slate-950 py-8 text-center text-sm text-slate-500">
-        <p>© 2026 ProjectLocal. Handcrafted with pride by neighbors, for neighbors.</p>
+    <div class="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-md bg-slate-900/80 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl p-3 flex justify-around items-center gap-3 md:hidden theme-transition" id="floating-bar">
+        <a href="tel:6097216674" class="flex-1 flex items-center justify-center gap-2 bg-cyan-600 text-white font-bold py-3 px-4 rounded-xl text-xs uppercase tracking-wider shadow-lg shadow-cyan-500/10">
+            <i class="fa-solid fa-phone"></i> Call Kavin
+        </a>
+        <a href="tel:6097791824" class="flex-1 flex items-center justify-center gap-2 bg-fuchsia-600 text-white font-bold py-3 px-4 rounded-xl text-xs uppercase tracking-wider shadow-lg shadow-fuchsia-500/10">
+            <i class="fa-solid fa-phone"></i> Call Swarnab
+        </a>
+    </div>
+
+    <footer class="border-t border-white/5 bg-slate-950 py-12 text-center text-sm text-slate-500 px-4 mb-20 md:mb-0 theme-transition" id="footer">
+        <p>© 2026 ProjectLocal. Custom-engineered with absolute pride by neighbors, for neighbors.</p>
     </footer>
 
+    <script>
+        // 1. Interactive Accordion Toggle Logic
+        function toggleFaq(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('i');
+            
+            // Toggle Content Visibility
+            if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+                content.style.maxHeight = '0px';
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                content.style.maxHeight = content.scrollHeight + 'px';
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+
+        // 2. State-Driven Light Mode / Dark Mode Theme Controller Engine
+        let isDarkMode = true;
+        function toggleTheme() {
+            isDarkMode = !isDarkMode;
+            
+            const body = document.getElementById('body-theme');
+            const header = document.getElementById('nav-header');
+            const logoText = document.getElementById('logo-text');
+            const navLinks = document.getElementById('nav-links');
+            const heroSubtitle = document.getElementById('hero-subtitle');
+            const aboutText = document.getElementById('about-text');
+            const featuresSubtitle = document.getElementById('features-subtitle');
+            const teamSubtitle = document.getElementById('team-subtitle');
+            const faqSubtitle = document.getElementById('faq-subtitle');
+            const formSubtitle = document.getElementById('form-subtitle');
+            const themeBtn = document.getElementById('theme-btn');
+            const themeIcon = document.getElementById('theme-icon');
+            const floatingBar = document.getElementById('floating-bar');
+            const footer = document.getElementById('footer');
+            
+            // Component Glass Cards and Input Arrays
+            const glassAbout = document.getElementById('glass-card-about');
+            const glassForm = document.getElementById('glass-card-form');
+            const team1 = document.getElementById('team-card-1');
+            const team2 = document.getElementById('team-card-2');
+            const teamContacts1 = document.getElementById('team-contacts-1');
+            const teamContacts2 = document.getElementById('team-contacts-2');
+            const allGlassCards = document.getElementsByName('glass-card');
+            const allFaqBlocks = document.getElementsByName('faq-block');
+            const allInputs = [
+                document.getElementById('input-1'),
+                document.getElementById('input-2'),
+                document.getElementById('input-3'),
+                document.getElementById('input-4'),
+                document.getElementById('input-5')
+            ];
+
+            if (!isDarkMode) {
+                // LIGHT MODE PARAMETERS
+                body.classList.replace('bg-slate-950', 'bg-slate-50');
+                body.classList.replace('text-white', 'text-slate-900');
+                header.classList.replace('bg-slate-950/70', 'bg-white/80');
+                header.classList.replace('border-white/5', 'border-slate-200');
+                logoText.classList.replace('text-white', 'text-slate-900');
+                navLinks.classList.replace('text-slate-300', 'text-slate-600');
+                heroSubtitle.classList.replace('text-slate-300', 'text-slate-600');
+                aboutText.classList.replace('text-slate-300', 'text-slate-600');
+                featuresSubtitle.classList.replace('text-slate-400', 'text-slate-600');
+                teamSubtitle.classList.replace('text-slate-400', 'text-slate-600');
+                faqSubtitle.classList.replace('text-slate-400', 'text-slate-600');
+                formSubtitle.classList.replace('text-slate-400', 'text-slate-600');
+                footer.classList.replace('bg-slate-950', 'bg-slate-100');
+                footer.classList.replace('border-white/5', 'border-slate-200');
+                floatingBar.classList.replace('bg-slate-900/80', 'bg-white/90');
+                floatingBar.classList.replace('border-white/10', 'border-slate-200');
+
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+                themeBtn.classList.replace('text-amber-400', 'text-blue-600');
+                themeBtn.classList.replace('bg-white/5', 'bg-slate-200');
+                themeBtn.classList.replace('border-white/10', 'border-slate-300');
+
+                // Adjust Glass Cards for Light Mode readability
+                const adjustGlassLight = (el) => {
+                    el.classList.replace('bg-white/5', 'bg-white/70');
+                    el.classList.replace('border-white/10', 'border-slate-200');
+                };
+                adjustGlassLight(glassAbout);
+                adjustGlassLight(glassForm);
+                adjustGlassLight(team1);
+                adjustGlassLight(team2);
+                teamContacts1.classList.replace('text-slate-300', 'text-slate-600');
+                teamContacts2.classList.replace('text-slate-300', 'text-slate-600');
+
+                allGlassCards.forEach(adjustGlassLight);
+                allFaqBlocks.forEach((el) => {
+                    el.classList.replace('bg-white/5', 'bg-white/80');
+                    el.classList.replace('border-white/10', 'border-slate-200');
+                });
+                allInputs.forEach((el) => {
+                    el.classList.replace('bg-white/5', 'bg-slate-100');
+                    el.classList.replace('text-white', 'text-slate-900');
+                    el.classList.replace('border-white/10', 'border-slate-300');
+                });
+
+            } else {
+                // DARK MODE PARAMETERS
+                body.classList.replace('bg-slate-50', 'bg-slate-950');
+                body.classList.replace('text-slate-900', 'text-white');
+                header.classList.replace('bg-white/80', 'bg-slate-950/70');
+                header.classList.replace('border-slate-200', 'border-white/5');
+                logoText.classList.replace('text-slate-900', 'text-white');
+                navLinks.classList.replace('text-slate-600', 'text-slate-300');
+                heroSubtitle.classList.replace('text-slate-600', 'text-slate-300');
+                aboutText.classList.replace('text-slate-600', 'text-slate-300');
+                featuresSubtitle.classList.replace('text-slate-600', 'text-slate-400');
+                teamSubtitle.classList.replace('text-slate-600', 'text-slate-400');
+                faqSubtitle.classList.replace('text-slate-600', 'text-slate-400');
+                formSubtitle.classList.replace('text-slate-600', 'text-slate-400');
+                footer.classList.replace('bg-slate-100', 'bg-slate-950');
+                footer.classList.replace('border-slate-200', 'border-white/5');
+                floatingBar.classList.replace('bg-white/90', 'bg-slate-900/80');
+                floatingBar.classList.replace('border-slate-200', 'border-white/10');
+
+                themeIcon.classList.replace('fa-sun', 'fa-moon');
+                themeBtn.classList.replace('text-blue-600', 'text-amber-400');
+                themeBtn.classList.replace('bg-slate-200', 'bg-white/5');
+                themeBtn.classList.replace('border-slate-300', 'border-white/10');
+
+                // Restore Glass Cards for Dark Mode contrast
+                const adjustGlassDark = (el) => {
+                    el.classList.replace('bg-white/70', 'bg-white/5');
+                    el.classList.replace('border-slate-200', 'border-white/10');
+                };
+                adjustGlassDark(glassAbout);
+                adjustGlassDark(glassForm);
+                adjustGlassDark(team1);
+                adjustGlassDark(team2);
+                teamContacts1.classList.replace('text-slate-600', 'text-slate-300');
+                teamContacts2.classList.replace('text-slate-600', 'text-slate-300');
+
+                allGlassCards.forEach(adjustGlassDark);
+                allFaqBlocks.forEach((el) => {
+                    el.classList.replace('bg-white/80', 'bg-white/5');
+                    el.classList.replace('border-slate-200', 'border-white/10');
+                });
+                allInputs.forEach((el) => {
+                    el.classList.replace('bg-slate-100', 'bg-white/5');
+                    el.classList.replace('text-slate-900', 'text-white');
+                    el.classList.replace('border-slate-300', 'border-white/10');
+                });
+            }
+        }
+    </script>
 </body>
 </html>
