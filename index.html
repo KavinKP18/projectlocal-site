@@ -39,6 +39,17 @@
         .theme-transition {
             transition: background-color 0.5s ease, border-color 0.5s ease, text-color 0.5s ease, box-shadow 0.5s ease;
         }
+
+        /* Scroll-Driven Animation Classes */
+        .reveal-element {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.215, 0.610, 0.355, 1), transform 0.8s cubic-bezier(0.215, 0.610, 0.355, 1);
+        }
+        .reveal-element.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body class="bg-slate-950 text-white font-sans antialiased scroll-smooth theme-transition transition-colors duration-500" id="body-theme">
@@ -87,7 +98,24 @@
         </div>
     </section>
 
-    <section id="about" class="max-w-5xl mx-auto px-4 py-16 relative">
+    <section class="max-w-5xl mx-auto px-4 py-8 relative z-10 reveal-element">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
+            <div class="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 theme-transition shadow-xl" name="glass-card">
+                <div class="text-4xl sm:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 mb-1"><span class="counter" data-target="92">0</span>%</div>
+                <p class="text-xs uppercase tracking-widest font-bold text-slate-400 transition-colors duration-500" name="stat-label">Increase in Reach</p>
+            </div>
+            <div class="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 theme-transition shadow-xl" name="glass-card">
+                <div class="text-4xl sm:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500 mb-1"><span class="counter" data-target="100">0</span>%</div>
+                <p class="text-xs uppercase tracking-widest font-bold text-slate-400 transition-colors duration-500" name="stat-label">Custom Engineered</p>
+            </div>
+            <div class="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 theme-transition shadow-xl" name="glass-card">
+                <div class="text-4xl sm:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-fuchsia-500 mb-1"><span class="counter" data-target="24">0</span>/7</div>
+                <p class="text-xs uppercase tracking-widest font-bold text-slate-400 transition-colors duration-500" name="stat-label">Automated Leads</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="max-w-5xl mx-auto px-4 py-16 relative reveal-element">
         <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 sm:p-12 shadow-2xl relative overflow-hidden theme-transition" id="glass-card-about">
             <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-cyan-500/10 blur-2xl rounded-full"></div>
             <div class="max-w-3xl relative z-10">
@@ -104,23 +132,23 @@
         <div class="liquid-blob-reverse w-96 h-96 bg-fuchsia-500/10 top-1/3 left-1/2 -translate-x-1/2"></div>
 
         <div class="relative z-10 max-w-6xl mx-auto px-4">
-            <div class="text-center max-w-2xl mx-auto mb-16">
+            <div class="text-center max-w-2xl mx-auto mb-16 reveal-element">
                 <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-4">Packed with Powerful Features</h2>
                 <p class="text-slate-400 transition-colors duration-500" id="features-subtitle">We pack every website with premium business tools to pull in traffic and conversions.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-2xl shadow-xl hover:border-cyan-500/40 transition duration-300 theme-transition" name="glass-card">
+                <div class="bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-2xl shadow-xl hover:border-cyan-500/40 transition duration-300 theme-transition reveal-element" name="glass-card">
                     <div class="w-12 h-12 rounded-xl bg-cyan-500/20 flex items-center justify-center text-cyan-400 text-xl mb-6"><i class="fa-solid fa-mobile-screen-button"></i></div>
                     <h3 class="text-xl font-bold mb-2">Mobile-First Design</h3>
                     <p class="text-slate-400">Your site will look flawless and function smoothly on smartphones, tablets, and desktops alike.</p>
                 </div>
-                <div class="bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-2xl shadow-xl hover:border-cyan-500/40 transition duration-300 theme-transition" name="glass-card">
+                <div class="bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-2xl shadow-xl hover:border-cyan-500/40 transition duration-300 theme-transition reveal-element" name="glass-card">
                     <div class="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center text-blue-400 text-xl mb-6"><i class="fa-solid fa-magnifying-glass-location"></i></div>
                     <h3 class="text-xl font-bold mb-2">Local SEO Ready</h3>
                     <p class="text-slate-400">Optimized structure to help your business climb the ranks on Google Maps and local search queries.</p>
                 </div>
-                <div class="bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-2xl shadow-xl hover:border-cyan-500/40 transition duration-300 theme-transition" name="glass-card">
+                <div class="bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-2xl shadow-xl hover:border-cyan-500/40 transition duration-300 theme-transition reveal-element" name="glass-card">
                     <div class="w-12 h-12 rounded-xl bg-fuchsia-500/20 flex items-center justify-center text-fuchsia-400 text-xl mb-6"><i class="fa-solid fa-calendar-days"></i></div>
                     <h3 class="text-xl font-bold mb-2">Online Booking</h3>
                     <p class="text-slate-400">Let your customers schedule appointments, book tables, or request services 24/7 without making a call.</p>
@@ -130,12 +158,12 @@
     </section>
 
     <section id="team" class="py-20 relative max-w-6xl mx-auto px-4">
-        <div class="text-center max-w-2xl mx-auto mb-16">
+        <div class="text-center max-w-2xl mx-auto mb-16 reveal-element">
             <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-4">Meet the Founders</h2>
             <p class="text-slate-400 transition-colors duration-500" id="team-subtitle">We are dedicated tech partners working directly with you to scale your business online.</p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <div class="bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-3xl shadow-xl flex flex-col items-center text-center theme-transition" id="team-card-1">
+            <div class="bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-3xl shadow-xl flex flex-col items-center text-center theme-transition reveal-element" id="team-card-1">
                 <div class="w-24 h-24 rounded-2xl bg-gradient-to-tr from-cyan-400 to-blue-600 flex items-center justify-center text-white text-3xl font-black mb-6 shadow-lg shadow-cyan-500/20">KP</div>
                 <h3 class="text-2xl font-bold tracking-tight">Kavinkrishna Pandiarajan</h3>
                 <p class="text-cyan-400 font-semibold text-sm mb-4">Co-Founder & Web Architect</p>
@@ -144,7 +172,7 @@
                     <a href="mailto:pandiarajankavin2@gmail.com" class="flex items-center gap-3 hover:text-cyan-400 transition break-all"><i class="fa-solid fa-envelope text-cyan-400"></i> pandiarajankavin2@gmail.com</a>
                 </div>
             </div>
-            <div class="bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-3xl shadow-xl flex flex-col items-center text-center theme-transition" id="team-card-2">
+            <div class="bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-3xl shadow-xl flex flex-col items-center text-center theme-transition reveal-element" id="team-card-2">
                 <div class="w-24 h-24 rounded-2xl bg-gradient-to-tr from-fuchsia-400 to-indigo-600 flex items-center justify-center text-white text-3xl font-black mb-6 shadow-lg shadow-fuchsia-500/20">SR</div>
                 <h3 class="text-2xl font-bold tracking-tight">Swarnab Roy</h3>
                 <p class="text-fuchsia-400 font-semibold text-sm mb-4">Co-Founder & Lead Engineer</p>
@@ -157,12 +185,12 @@
     </section>
 
     <section id="faq" class="py-20 relative max-w-4xl mx-auto px-4">
-        <div class="text-center max-w-2xl mx-auto mb-16">
+        <div class="text-center max-w-2xl mx-auto mb-16 reveal-element">
             <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-4">Frequently Asked Questions</h2>
             <p class="text-slate-400 transition-colors duration-500" id="faq-subtitle">Everything you need to know about setting up your new website.</p>
         </div>
         <div class="space-y-4">
-            <div class="bg-white/5 border border-white/10 rounded-2xl overflow-hidden theme-transition" name="faq-block">
+            <div class="bg-white/5 border border-white/10 rounded-2xl overflow-hidden theme-transition reveal-element" name="faq-block">
                 <button onclick="toggleFaq(this)" class="w-full px-6 py-5 text-left font-bold flex justify-between items-center text-lg hover:bg-white/5 transition cursor-pointer">
                     <span>How long does it take to launch my website?</span>
                     <i class="fa-solid fa-chevron-down text-cyan-400 transition-transform duration-300"></i>
@@ -171,7 +199,7 @@
                     <p class="p-6 text-slate-300 leading-relaxed border-t border-white/5">Typically, we can design, build, test, and launch your fully optimized local business website within 7 to 14 days following our initial coffee chat.</p>
                 </div>
             </div>
-            <div class="bg-white/5 border border-white/10 rounded-2xl overflow-hidden theme-transition" name="faq-block">
+            <div class="bg-white/5 border border-white/10 rounded-2xl overflow-hidden theme-transition reveal-element" name="faq-block">
                 <button onclick="toggleFaq(this)" class="w-full px-6 py-5 text-left font-bold flex justify-between items-center text-lg hover:bg-white/5 transition cursor-pointer">
                     <span>Do I own the custom website and data?</span>
                     <i class="fa-solid fa-chevron-down text-cyan-400 transition-transform duration-300"></i>
@@ -180,7 +208,7 @@
                     <p class="p-6 text-slate-300 leading-relaxed border-t border-white/5">Yes, absolutely! Unlike restrictive monthly web builder agencies, 100% of the files, accounts, asset structures, and underlying deployment frameworks belong to you completely.</p>
                 </div>
             </div>
-            <div class="bg-white/5 border border-white/10 rounded-2xl overflow-hidden theme-transition" name="faq-block">
+            <div class="bg-white/5 border border-white/10 rounded-2xl overflow-hidden theme-transition reveal-element" name="faq-block">
                 <button onclick="toggleFaq(this)" class="w-full px-6 py-5 text-left font-bold flex justify-between items-center text-lg hover:bg-white/5 transition cursor-pointer">
                     <span>What is required to keep my site running live?</span>
                     <i class="fa-solid fa-chevron-down text-cyan-400 transition-transform duration-300"></i>
@@ -192,7 +220,7 @@
         </div>
     </section>
 
-    <section id="contact" class="max-w-4xl mx-auto px-4 py-24 relative">
+    <section id="contact" class="max-w-4xl mx-auto px-4 py-24 relative reveal-element">
         <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 sm:p-12 shadow-2xl relative z-10 theme-transition" id="glass-card-form">
             <div class="text-center max-w-xl mx-auto mb-10">
                 <h2 class="text-3xl font-bold tracking-tight mb-3">Ready to Upgrade Your Presence?</h2>
@@ -253,7 +281,6 @@
             const content = button.nextElementSibling;
             const icon = button.querySelector('i');
             
-            // Toggle Content Visibility
             if (content.style.maxHeight && content.style.maxHeight !== '0px') {
                 content.style.maxHeight = '0px';
                 icon.style.transform = 'rotate(0deg)';
@@ -263,7 +290,47 @@
             }
         }
 
-        // 2. State-Driven Light Mode / Dark Mode Theme Controller Engine
+        // 2. High-Performance Intersection Observer for Scroll Animations & Counter Triggers
+        document.addEventListener('DOMContentLoaded', () => {
+            const revealElements = document.querySelectorAll('.reveal-element');
+            
+            const elementObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        
+                        // Check if this container contains metric counters to activate
+                        const counters = entry.target.querySelectorAll('.counter');
+                        if (counters.length > 0) {
+                            counters.forEach(counter => runCounter(counter));
+                        }
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+
+            revealElements.forEach(el => elementObserver.observe(el));
+        });
+
+        // 3. Mathematical Incremental Counter Script
+        function runCounter(counterElement) {
+            const target = +counterElement.getAttribute('data-target');
+            let count = 0;
+            const speed = target / 40; // Total calculation frames
+
+            const updateCount = () => {
+                count += speed;
+                if (count < target) {
+                    counterElement.innerText = Math.floor(count);
+                    setTimeout(updateCount, 20);
+                } else {
+                    counterElement.innerText = target;
+                }
+            };
+            updateCount();
+        }
+
+        // 4. State-Driven Light Mode / Dark Mode Theme Controller Engine
         let isDarkMode = true;
         function toggleTheme() {
             isDarkMode = !isDarkMode;
@@ -283,15 +350,16 @@
             const floatingBar = document.getElementById('floating-bar');
             const footer = document.getElementById('footer');
             
-            // Component Glass Cards and Input Arrays
             const glassAbout = document.getElementById('glass-card-about');
             const glassForm = document.getElementById('glass-card-form');
             const team1 = document.getElementById('team-card-1');
             const team2 = document.getElementById('team-card-2');
             const teamContacts1 = document.getElementById('team-contacts-1');
             const teamContacts2 = document.getElementById('team-contacts-2');
+            
             const allGlassCards = document.getElementsByName('glass-card');
             const allFaqBlocks = document.getElementsByName('faq-block');
+            const allStatLabels = document.getElementsByName('stat-label');
             const allInputs = [
                 document.getElementById('input-1'),
                 document.getElementById('input-2'),
@@ -301,7 +369,6 @@
             ];
 
             if (!isDarkMode) {
-                // LIGHT MODE PARAMETERS
                 body.classList.replace('bg-slate-950', 'bg-slate-50');
                 body.classList.replace('text-white', 'text-slate-900');
                 header.classList.replace('bg-slate-950/70', 'bg-white/80');
@@ -316,39 +383,42 @@
                 formSubtitle.classList.replace('text-slate-400', 'text-slate-600');
                 footer.classList.replace('bg-slate-950', 'bg-slate-100');
                 footer.classList.replace('border-white/5', 'border-slate-200');
-                floatingBar.classList.replace('bg-slate-900/80', 'bg-white/90');
-                floatingBar.classList.replace('border-white/10', 'border-slate-200');
+                if (floatingBar) {
+                    floatingBar.classList.replace('bg-slate-900/80', 'bg-white/90');
+                    floatingBar.classList.replace('border-white/10', 'border-slate-200');
+                }
 
                 themeIcon.classList.replace('fa-moon', 'fa-sun');
                 themeBtn.classList.replace('text-amber-400', 'text-blue-600');
                 themeBtn.classList.replace('bg-white/5', 'bg-slate-200');
                 themeBtn.classList.replace('border-white/10', 'border-slate-300');
 
-                // Adjust Glass Cards for Light Mode readability
                 const adjustGlassLight = (el) => {
                     el.classList.replace('bg-white/5', 'bg-white/70');
                     el.classList.replace('border-white/10', 'border-slate-200');
                 };
                 adjustGlassLight(glassAbout);
                 adjustGlassLight(glassForm);
-                adjustGlassLight(team1);
-                adjustGlassLight(team2);
-                teamContacts1.classList.replace('text-slate-300', 'text-slate-600');
-                teamContacts2.classList.replace('text-slate-300', 'text-slate-600');
+                if (team1) adjustGlassLight(team1);
+                if (team2) adjustGlassLight(team2);
+                if (teamContacts1) teamContacts1.classList.replace('text-slate-300', 'text-slate-600');
+                if (teamContacts2) teamContacts2.classList.replace('text-slate-300', 'text-slate-600');
 
                 allGlassCards.forEach(adjustGlassLight);
+                allStatLabels.forEach(el => el.classList.replace('text-slate-400', 'text-slate-500'));
                 allFaqBlocks.forEach((el) => {
                     el.classList.replace('bg-white/5', 'bg-white/80');
                     el.classList.replace('border-white/10', 'border-slate-200');
                 });
                 allInputs.forEach((el) => {
-                    el.classList.replace('bg-white/5', 'bg-slate-100');
-                    el.classList.replace('text-white', 'text-slate-900');
-                    el.classList.replace('border-white/10', 'border-slate-300');
+                    if (el) {
+                        el.classList.replace('bg-white/5', 'bg-slate-100');
+                        el.classList.replace('text-white', 'text-slate-900');
+                        el.classList.replace('border-white/10', 'border-slate-300');
+                    }
                 });
 
             } else {
-                // DARK MODE PARAMETERS
                 body.classList.replace('bg-slate-50', 'bg-slate-950');
                 body.classList.replace('text-slate-900', 'text-white');
                 header.classList.replace('bg-white/80', 'bg-slate-950/70');
@@ -363,35 +433,39 @@
                 formSubtitle.classList.replace('text-slate-600', 'text-slate-400');
                 footer.classList.replace('bg-slate-100', 'bg-slate-950');
                 footer.classList.replace('border-slate-200', 'border-white/5');
-                floatingBar.classList.replace('bg-white/90', 'bg-slate-900/80');
-                floatingBar.classList.replace('border-slate-200', 'border-white/10');
+                if (floatingBar) {
+                    floatingBar.classList.replace('bg-white/90', 'bg-slate-900/80');
+                    floatingBar.classList.replace('border-slate-200', 'border-white/10');
+                }
 
                 themeIcon.classList.replace('fa-sun', 'fa-moon');
                 themeBtn.classList.replace('text-blue-600', 'text-amber-400');
                 themeBtn.classList.replace('bg-slate-200', 'bg-white/5');
                 themeBtn.classList.replace('border-slate-300', 'border-white/10');
 
-                // Restore Glass Cards for Dark Mode contrast
                 const adjustGlassDark = (el) => {
                     el.classList.replace('bg-white/70', 'bg-white/5');
                     el.classList.replace('border-slate-200', 'border-white/10');
                 };
                 adjustGlassDark(glassAbout);
                 adjustGlassDark(glassForm);
-                adjustGlassDark(team1);
-                adjustGlassDark(team2);
-                teamContacts1.classList.replace('text-slate-600', 'text-slate-300');
-                teamContacts2.classList.replace('text-slate-600', 'text-slate-300');
+                if (team1) adjustGlassDark(team1);
+                if (team2) adjustGlassDark(team2);
+                if (teamContacts1) teamContacts1.classList.replace('text-slate-600', 'text-slate-300');
+                if (teamContacts2) teamContacts2.classList.replace('text-slate-600', 'text-slate-300');
 
                 allGlassCards.forEach(adjustGlassDark);
+                allStatLabels.forEach(el => el.classList.replace('text-slate-500', 'text-slate-400'));
                 allFaqBlocks.forEach((el) => {
                     el.classList.replace('bg-white/80', 'bg-white/5');
                     el.classList.replace('border-slate-200', 'border-white/10');
                 });
                 allInputs.forEach((el) => {
-                    el.classList.replace('bg-slate-100', 'bg-white/5');
-                    el.classList.replace('text-slate-900', 'text-white');
-                    el.classList.replace('border-slate-300', 'border-white/10');
+                    if (el) {
+                        el.classList.replace('bg-slate-100', 'bg-white/5');
+                        el.classList.replace('text-slate-900', 'text-white');
+                        el.classList.replace('border-slate-300', 'border-white/10');
+                    }
                 });
             }
         }
